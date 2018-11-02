@@ -6,6 +6,7 @@ public class test {
 		// TODO Auto-generated method stub
 		student s = new student();
 		s.signup();
+		s.classsignup();
 	}
 
 }

@@ -2,21 +2,26 @@ package skyward_project;
 import java.util.Scanner;
 import java.io.*;
 
-public class student {
+public class student{
+static String studentname;
 static File student_list = new File("all_students");
 static Scanner sc = new Scanner(System.in);
+int choice, total = 0;
 public void signup() throws IOException  {
 	Scanner list = new Scanner(student_list);
+	FileWriter fw = new FileWriter(student_list,true);
 	System.out.println("What is your Name: ");
-	String student = sc.next();
+	studentname = sc.next();
 	while(list.hasNext()) {
-		if(student == list.nextLine()) {
+		if(studentname == list.nextLine()) {
 			//continue
 		} 
 		else {
-			File file = new File(student);
+			File file = new File(studentname);
 	        if(file.createNewFile()){
 	        System.out.println("You are enrolled at our school");
+	        fw.write(studentname);
+	        fw.close();
 	        }
 	        else {
 	        System.out.println("You are already enrolled");
@@ -24,11 +29,11 @@ public void signup() throws IOException  {
 		}	
 	}
 }
-public void classsignup(String student) throws IOException {
-File s = new File(student);
+public void classsignup() throws IOException {
+	
+File s = new File(studentname);
 FileWriter fw = new FileWriter(s,true);
 BufferedWriter bw = new BufferedWriter(fw);
-int choice, total = 0;
 System.out.println("What Clases would you like to signup for: ");
 System.out.println("1: Economics");
 System.out.println("2: US History");
@@ -50,92 +55,115 @@ System.out.println("17: Computer Science");
 System.out.println("18: Internet Security");
 System.out.println("19: Gym");
 System.out.println("20: Wind Symphony");
-fw.write("Classes");
-while(total < 5) {
+fw.write("Classes\n\n");
+while(total !=5) {
 choice = sc.nextInt();
 if(choice == 1) {
-	bw.write("Algebra");
-	total = total + 1;
+	bw.write("Algebra\n\n");
+	choice = sc.nextInt();
 }
 if(choice == 2) {
-	bw.write("US History");
-	total = total + 1;
+	bw.write("US History\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 3) {
-	bw.write("European History");
-	total = total + 1;
+	bw.write("European History\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 4) {
-	bw.write("Calculus");
-	total = total + 1;
+	bw.write("Calculus\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 5) {
-	bw.write("Physics");
-	total = total + 1;
+	bw.write("Physics\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 6) {
-	bw.write("Biology");
-	total = total + 1;
+	bw.write("Biology\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 7) {
-	bw.write("Chemistry");
-	total = total + 1;
+	bw.write("Chemistry\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 8) {
-	bw.write("Advanced English 12");
-	total = total + 1;
+	bw.write("Advanced English 12\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 9) {
-	bw.write("English 12");
-	total = total + 1;
+	bw.write("English 12\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 10) {
-	bw.write("Mythology");
-	total = total + 1;
+	bw.write("Mythology\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 11) {
-	bw.write("American Literature");
-	total = total + 1;
+	bw.write("American Literature\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 12) {
-	bw.write("Laws and Civics");
-	total = total + 1;
+	bw.write("Laws and Civics\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 13) {
-	bw.write("Health");
-	total = total + 1;
+	bw.write("Health\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 14) {
-	bw.write("Japanese");
-	total = total + 1;
+	bw.write("Japanese\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 15) {
-	bw.write("French");
-	total = total + 1;
+	bw.write("French\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 16) {
-	bw.write("German");
-	total = total + 1;
+	bw.write("German\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 17) {
-	bw.write("Computer Science");
-	total = total + 1;
+	bw.write("Computer Science\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 18) {
-	bw.write("Internet Security");
-	total = total + 1;
+	bw.write("Internet Security\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 19) {
-	bw.write("Gym");
-	total = total + 1;
+	bw.write("Gym\n\n");
+	choice = sc.nextInt();
+
 }
 if(choice == 20) {
-	bw.write("Wind Symphony");
-	total = total + 1;
+	bw.write("Wind Symphony\n\n");
+	choice = sc.nextInt();
+}
+total = total + 1;
+}
+if(choice > 20) {
+	System.out.println("Not a class");
+}
+bw.close();
 }
 
-}
-}
-
 
 }
+
