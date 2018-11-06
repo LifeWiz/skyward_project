@@ -6,6 +6,13 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		
+		Main m = new Main();
+		m.MainMethod();
+		
+	}
+	
+	public void MainMethod() throws IOException{
+		
 		student s = new student();
 		teacher t = new teacher();
 		Scanner input = new Scanner(System.in);
@@ -47,7 +54,6 @@ public class Main {
 			}
 			}
 		}
-		
 	}
 
 }
