@@ -1,5 +1,3 @@
-package skyward_project;
-
 import java.util.Scanner;
 import java.io.*;
 
@@ -46,11 +44,10 @@ public class teacher {
 			}
 		}
 		
-		String StudentName = StudentListArray[StudentID];
+		String StudentName = StudentListArray[StudentID] + "";
 		
-		File file = new File(StudentName);
-		Scanner reader = new Scanner(file);
-		PrintWriter writer = new PrintWriter(file);
+		PrintWriter writer = new PrintWriter(StudentName);
+		Scanner reader = new Scanner(StudentName);
 		
 		if (reader.nextLine() == "Classes") { //Outputs class list from File 
 			for (int i = 0; i < 8; i++) {
@@ -80,15 +77,17 @@ public class teacher {
 		ChoosingOptions(); //Calls next method
 	}
 	
-	public void ChoosingOptions() {
+	public void ChoosingOptions() throws IOException{
 		
 		ValidChoice = false; //Variables
 		int choice = 0;
 		String options = "";
 		
+		Main m = new Main();
+		
 		while (ValidChoice == false) { //Loop that continues until user enters a valid option
 			System.out.println("What would you like to do with " + StudentListArray[StudentID] + "?");
-			System.out.println("\t[1] Assign Grades\n\t[2] Take Attendance\n\t[3] Back");\
+			System.out.println("\t[1] Assign Grades\n\t[2] Take Attendance\n\t[3] Back");
 			
 			options = input.nextLine(); 
 			try { //converts inputted string to int and checks if it throws an exception. 
@@ -108,28 +107,28 @@ public class teacher {
 			takeAttendance();
 		}
 		else if (choice == 3) {
-			//call main class here
+			m.MainMethod();
 		}
 		else {//Recalls options method if the user didn't enter a valid choice
 			System.out.println("That is not an option. Try again");
 			ChoosingOptions();
 		}
 	}
-	public void assignGrade() {
+	
+	public void assignGrade() throws IOException{
 		
-		String choice;
-		String numer, slash, denom;
-		int numerator, denominator;
-		float percentage;
-		char Grade;
+		String choice = "";
+		String numer = "", slash = "", denom = "";
+		int numerator = 0, denominator = 0;
+		float percentage = 0;
+		char Grade = ' ';
 		String StudentName = StudentListArray[StudentID];
 		StudentName = StudentName + ".txt";
 		ValidClass = false;
 		ValidInput = false;
 		
-		File file = new File(StudentName);
-		Scanner reader = new Scanner(file);
-		PrintWriter writer = new PrintWriter(file);
+		PrintWriter writer = new PrintWriter(StudentName);
+		Scanner reader = new Scanner(StudentName);
 		
 		for (int i = 0; i < 8; i++) {
 			System.out.println(ClassListArray[i]);
@@ -213,18 +212,17 @@ public class teacher {
 		ChoosingOptions(); //Calls next method
 		
 	}
-	public void takeAttendance() {
+	public void takeAttendance() throws IOException{
 		
-		String choice, status;
-		int options;
+		String choice = "", status = "";
+		int options = 0;
 		String StudentName = StudentListArray[StudentID];
 		StudentName = StudentName + ".txt";
 		ValidClass = false;
 		ValidInput = false;
 		
-		File file = new File(StudentName);
-		Scanner reader = new Scanner(file);
-		PrintWriter writer = new PrintWriter(file);
+		PrintWriter writer = new PrintWriter(StudentName);
+		Scanner reader = new Scanner(StudentName);
 		
 		for (int i = 0; i < 8; i++) {
 			System.out.println(ClassListArray[i]);
@@ -294,4 +292,3 @@ public class teacher {
 		
 	}
 }
-
