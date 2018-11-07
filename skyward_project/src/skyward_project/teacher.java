@@ -219,12 +219,13 @@ public class teacher {
 	}
 	public void takeAttendance() throws IOException{
 		
-		String choice = "", status = ""; //Variables
-		int options = 0;
+		String choice = "", status = "", month = "", day = ""; //Variables
+		int options = 0, date = 0, dayNum = 0;
 		String StudentName = StudentListArray[StudentID];
 		StudentName = StudentName + ".txt";
 		ValidClass = false;
 		ValidInput = false;
+		Boolean ValidMonth = false, ValidDay = false;
 		
 		PrintWriter writer = new PrintWriter(StudentName); //FileIO
 		Scanner reader = new Scanner(StudentName);
@@ -247,6 +248,83 @@ public class teacher {
 			}
 		}
 		
+		while (ValidMonth == false && ValidDay == false) { //User inputs date. Checks for valid date.
+			System.out.println("Please enter a date in the following format - [Jul 08]");
+			month = input.next();
+			day = input.next();
+			
+			try {
+				date - Integer.parseInt(day);
+			}
+			catch (Exception e) {
+				System.out.println("Your input was not valid. Please try again.");
+				continue;
+			}
+			
+			switch (month) {
+				case "Jan":
+					dayNum = 31;
+					ValidMonth == true;
+					break;
+				case "Feb":
+					dayNum = 28;
+					ValidMonth == true;
+					break;
+				case "Mar":
+					dayNum = 31;
+					ValidMonth == true;
+					break;
+				case "Apr":
+					dayNum = 30;
+					ValidMonth == true;
+					break;
+				case "May":
+					dayNum = 31;
+					ValidMonth == true;
+					break;
+				case "Jun":
+					dayNum = 30;
+					ValidMonth == true;
+					break;
+				case "Jul":
+					dayNum = 31;
+					ValidMonth == true;
+					break;
+				case "Aug":
+					dayNum = 31;
+					ValidMonth == true;
+					break;
+				case "Sep":
+					dayNum = 30;
+					ValidMonth == true;
+					break;
+				case "Oct":
+					dayNum = 31;
+					ValidMonth == true;
+					break;
+				case "Nov":
+					dayNum = 30;
+					ValidMonth == true;
+					break;
+				case "Dec":
+					dayNum = 31;
+					ValidMonth == true;
+					break;
+				default:
+					ValidMonth == false;
+					System.out.println("That is not a month. Please try again.");
+					continue;
+			}
+			
+			if (date < 0 && date > dayNum) {
+				System.out.println("That is not a valid date. Please try again.");
+				continue;
+			}
+			else {
+				ValidDay = true;
+			}
+		}
+		
 		while (ValidChoice == false) { //Loop that continues until user enters a valid option
 			System.out.println("Please enter an integer according to the following:");
 			System.out.println("\t[1] Absent\n\t[2] Tardy\n\t[3] Present");
@@ -254,10 +332,17 @@ public class teacher {
 			status = input.nextLine();
 			try { //converts inputted string to int and checks if it throws an exception. 
 				options = Integer.parseInt(status);
-				ValidChoice = true;
 			}
 			catch (Exception e) {
 				System.out.println("Your input was not valid. Please try again.");
+				continue;
+			}
+			
+			if (options < 1 && options > 3) {
+				System.out.println("That is not an option. Please try again.");
+			}
+			else {
+				ValidChoice = true
 			}
 		}
 		
@@ -278,18 +363,18 @@ public class teacher {
 			if (ClassListArray[i] == choice) {
 				switch(options) {
 				case 1: 
-					writer.println("Absent");
+					writer.println(month + " " + day + " Absent");
 					break;
 				case 2:
-					writer.println("Tardy");
+					writer.println(month + " " + day + " Tardy");
 					break;
 				case 3:
-					writer.println("Present");
+					writer.println(month + " " + day + " Present");
 					break;
 				}
 			}
 			else {
-			writer.println(ClassAttendanceArray[i]);
+				writer.println(ClassAttendanceArray[i]);
 			}
 		}
 		
