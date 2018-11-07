@@ -52,14 +52,15 @@ public class teacher {
 		PrintWriter writer = new PrintWriter(StudentName);
 		Scanner reader = new Scanner(StudentName);
 		
-		if (reader.nextLine() == "Classes") { //Outputs class list from File 
+		if (reader.nextLine() == "Classes") { //Outputs class list from File
+			skip = reader.nextLine();
 			for (int i = 0; i < 8; i++) { //Enters all classes into ClassList Array
-				skip = reader.nextLine();
 				classname = reader.nextLine();
 				ClassListArray[i] = classname;
 			}
 		}
 		if (reader.nextLine() == "Grades") { //Outputs class list from File 
+			skip = reader.nextLine();
 			for (int i = 0; i < 8; i++) { //Enters all grades into ClassGrades Array
 				skip = reader.nextLine();
 				classname = reader.nextLine();
@@ -67,6 +68,7 @@ public class teacher {
 			}
 		}
 		if (reader.nextLine() == "Attendance") { //Outputs class list from File 
+			skip = reader.nextLine();
 			for (int i = 0; i < 8; i++) { //Enters all Attendance into ClassAttendanceArray
 				skip = reader.nextLine();
 				classname = reader.nextLine();
