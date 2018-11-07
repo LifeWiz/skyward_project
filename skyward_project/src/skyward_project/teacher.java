@@ -201,6 +201,7 @@ public class teacher {
 			writer.println(ClassListArray[i]);
 			if (ClassListArray[i] == choice) {
 				writer.println(Grade + " " + numerator + "/" + denominator);
+				ClassGradeArray[i] = Grade + " " + numer + "/" + denom;
 			}
 			else {
 				writer.println(ClassGradeArray[i]);
@@ -363,17 +364,24 @@ public class teacher {
 		for (int i = 0; i < 8; i++) {
 			writer.println(ClassListArray[i]);
 			writer.println(ClassAttendanceArray[i]);
-			switch(options) {
-			case 1: 
-				writer.print(month + " " + day + " Absent**");
-				break;
-			case 2:
-				writer.print(month + " " + day + " Tardy**");
-				break;
-			case 3:
-				writer.print(month + " " + day + " Present**");
-				break;
+			if (ClassAttendanceArray[i] == choice) {
+				switch(options) {
+				case 1: 
+					writer.print(month + " " + day + " Absent**");
+					ClassAttendanceArray[i] = ClassAttendanceArray[i] + month + " " + day + " Absent**";
+					break;
+				case 2:
+					writer.print(month + " " + day + " Tardy**");
+					ClassAttendanceArray[i] = ClassAttendanceArray[i] + month + " " + day + " Tardy**";
+					break;
+				case 3:
+					writer.print(month + " " + day + " Present**");
+					ClassAttendanceArray[i] = ClassAttendanceArray[i] + month + " " + day + " Present**";
+					break;
+				}
 			}
+			
+			
 		}
 		
 		writer.close();
