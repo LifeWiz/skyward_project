@@ -56,6 +56,7 @@ public class teacher {
 			skip = reader.nextLine();
 			for (int i = 0; i < 8; i++) { //Enters all classes into ClassList Array
 				classname = reader.nextLine();
+				skip = reader.nextLine();
 				ClassListArray[i] = classname;
 			}
 		}
@@ -151,11 +152,6 @@ public class teacher {
 				System.out.println("Class not found. Please try again.");
 			}
 		}
-		
-		System.out.println("Please enter the student's class grade as a fraction [X / Y]"); //Input Prompt
-		numer = input.next();
-		slash = input.next();
-		denom = input.next();
 		
 		while (ValidInput == false) { //Loop that continues until user enters a valid option
 			System.out.println("Please enter the student's class grade as a fraction [X / Y]");
