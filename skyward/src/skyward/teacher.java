@@ -56,9 +56,10 @@ public class teacher {
 			if(list2.equals("Classes")){
 				String skip1 = reader.nextLine();
 			for (int i = 0; i < 8; i++) {
-				
-			ClassListArray[i] = reader.nextLine();
-System.out.println(ClassListArray[i]);
+				classname = reader.nextLine();
+				skip1 = reader.nextLine();
+				ClassListArray[i] = classname;
+			System.out.println(ClassListArray[i]);
 			}
 			}
 	}
