@@ -17,7 +17,7 @@ public class teacher {
 		String options = "", skip, classname;
 		ValidStudent = false;
 		
-		while (StudentList.hasNextLine()) { //Finds the number of registered students
+		while (StudentList.hasNextLine() == true) { //Finds the number of registered students
 			studentNum = studentNum + 1;
 		}
 		
