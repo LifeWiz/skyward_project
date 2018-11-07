@@ -360,21 +360,17 @@ public class teacher {
 		writer.println("Attendance"); //Rewrites attendance section to file
 		for (int i = 0; i < 8; i++) {
 			writer.println(ClassListArray[i]);
-			if (ClassListArray[i] == choice) {
-				switch(options) {
-				case 1: 
-					writer.println(month + " " + day + " Absent");
-					break;
-				case 2:
-					writer.println(month + " " + day + " Tardy");
-					break;
-				case 3:
-					writer.println(month + " " + day + " Present");
-					break;
-				}
-			}
-			else {
-				writer.println(ClassAttendanceArray[i]);
+			writer.println(ClassAttendanceArray[i]);
+			switch(options) {
+			case 1: 
+				writer.println(month + " " + day + " Absent");
+				break;
+			case 2:
+				writer.println(month + " " + day + " Tardy");
+				break;
+			case 3:
+				writer.println(month + " " + day + " Present");
+				break;
 			}
 		}
 		
