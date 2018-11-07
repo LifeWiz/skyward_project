@@ -176,7 +176,7 @@ public class teacher {
 			}
 		}
 		
-		percentage = numerator / denominator; //Determines Percentage grade and letter grade
+		percentage = per;
 		
 		if (percentage <= 100 && percentage > 90) {
 			Grade = 'A';
