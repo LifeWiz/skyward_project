@@ -253,16 +253,16 @@ public class teacher {
 			month = input.next();
 			day = input.next();
 			
-			try {
-				date - Integer.parseInt(day);
+			try { //Checks if day is a number
+				date = Integer.parseInt(day);
 			}
 			catch (Exception e) {
 				System.out.println("Your input was not valid. Please try again.");
 				continue;
 			}
 			
-			switch (month) {
-				case "Jan":
+			switch (month) { //Checks if user entered valid month
+				case "Jan": 
 					dayNum = 31;
 					ValidMonth == true;
 					break;
@@ -316,7 +316,7 @@ public class teacher {
 					continue;
 			}
 			
-			if (date < 0 && date > dayNum) {
+			if (date < 0 && date > dayNum) { //checks if user entered a valid date according to the month
 				System.out.println("That is not a valid date. Please try again.");
 				continue;
 			}
@@ -338,7 +338,7 @@ public class teacher {
 				continue;
 			}
 			
-			if (options < 1 && options > 3) {
+			if (options < 1 && options > 3) { //checks if user entered a valid option
 				System.out.println("That is not an option. Please try again.");
 			}
 			else {
@@ -346,18 +346,18 @@ public class teacher {
 			}
 		}
 		
-		writer.println("Classes");
+		writer.println("Classes"); //Rewrites classes section to file
 		for (int i = 0; i < 8; i++) {
 			writer.println(ClassListArray[i]);
 		}
 		
-		writer.println("Grades");
+		writer.println("Grades"); //Rewrites grades section to file
 		for (int i = 0; i < 8; i++) {
 			writer.println(ClassListArray[i]);
 			writer.println(ClassGradeArray[i]);
 		}
 		
-		writer.println("Attendance");
+		writer.println("Attendance"); //Rewrites attendance section to file
 		for (int i = 0; i < 8; i++) {
 			writer.println(ClassListArray[i]);
 			if (ClassListArray[i] == choice) {
