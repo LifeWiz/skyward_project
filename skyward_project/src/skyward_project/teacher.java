@@ -363,13 +363,13 @@ public class teacher {
 			writer.println(ClassAttendanceArray[i]);
 			switch(options) {
 			case 1: 
-				writer.println(month + " " + day + " Absent");
+				writer.print(month + " " + day + " Absent**");
 				break;
 			case 2:
-				writer.println(month + " " + day + " Tardy");
+				writer.print(month + " " + day + " Tardy**");
 				break;
 			case 3:
-				writer.println(month + " " + day + " Present");
+				writer.print(month + " " + day + " Present**");
 				break;
 			}
 		}
