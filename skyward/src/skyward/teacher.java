@@ -51,6 +51,7 @@ public class teacher {
 		UserInputName = UserInputName +".txt";
 		Scanner reader = new Scanner(UserInputName);
 		Scanner Student = new Scanner(new File(UserInputName));
+		
 		while(reader.hasNext()){
 			String list2 = reader.nextLine();
 			if(list2.equals("Classes")){
@@ -61,8 +62,8 @@ public class teacher {
 				ClassListArray[i] = classname;
 			System.out.println(ClassListArray[i]);
 			}
-			}
-	}
+		}
+		}
 
 				
 		if (Student.nextLine().equals("Grades")) { //Outputs class list from File 
@@ -135,8 +136,8 @@ public class teacher {
 	public void assignGrade() throws IOException{
 		
 		String choice = "";
-		String numer = "", slash = "", denom = "";
-		int numerator = 0, denominator = 0;
+		String percent = "";
+		int perc = 0;
 		float percentage = 0;
 		char Grade = ' ';
 		String StudentName = StudentListArray[StudentID];
@@ -162,21 +163,13 @@ public class teacher {
 			}
 		}
 		
-		System.out.println("Please enter the student's class grade as a fraction [X / Y]");
-		numer = input.next();
-		slash = input.next();
-		denom = input.next();
-		
 		while (ValidInput == false) { //Loop that continues until user enters a valid option
-			System.out.println("Please enter the student's class grade as a fraction [X / Y]");
-			numer = input.next();
-			slash = input.next();
-			denom = input.next();
+			System.out.println("Please enter the student's class grade as a integer percentage");
+			percent = input.next();
 			
 			try { //converts inputted string to int and checks if it throws an exception. 
-				numerator = Integer.parseInt(numer);
-				denominator = Integer.parseInt(denom);
-				
+				per = Integer.parseInt(percent);
+				Validinput = true;
 			}
 			catch (Exception e) {
 				System.out.println("Your input was not valid. Please try again.");
