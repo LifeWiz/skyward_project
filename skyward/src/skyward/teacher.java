@@ -203,7 +203,7 @@ public class teacher {
 		for (int i = 0; i < 8; i++) {
 			writer.println(ClassListArray[i]);
 			if (ClassListArray[i] == choice) {
-				writer.println(Grade + " " + numerator + "/" + denominator);
+				writer.println(Grade + " " + percentage);
 			}
 			else {
 				writer.println(ClassGradeArray[i]);
